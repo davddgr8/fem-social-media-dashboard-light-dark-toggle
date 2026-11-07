@@ -1,0 +1,35 @@
+.container {
+  padding: 0 1.5625rem;
+  max-width: 69.375rem;
+  margin: 0 auto 2.875rem;
+}
+@media (min-width: 71.875em) {
+  .container {
+    padding: 0;
+  }
+}
+
+@media (min-width: 40em) {
+  .card-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 599px) {
+  .cards {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: stretch;
+    width: 100%;
+    max-width: none;
+    gap: 1.5rem;
+    margin-top: 1.875rem;
+  }
+  .card {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+  }
+}/*# sourceMappingURL=layout.css.map */

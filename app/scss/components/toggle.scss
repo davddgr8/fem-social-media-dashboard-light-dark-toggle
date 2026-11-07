@@ -1,0 +1,92 @@
+@use '../util' as *;
+
+.toggle{
+  display: grid;
+  grid-template-columns: 1fr 3rem;
+  gap: rem(8);
+  border: none;
+
+    &__wrapper{ 
+      position: relative;
+      margin: 0;
+      display: block;
+      height: rem(24); 
+      width: rem(48);
+      overflow: hidden;
+      border-radius: rem(12);
+      grid-column: 2 / 3;
+    }
+
+    input[type="radio"]{
+      position: absolute;
+      top: 0;
+      width: 33.333%;
+      height: 100%;
+      margin: 0;
+      opacity: 0; 
+      cursor: pointer;
+      z-index: 2;
+
+      &:focus ~ .toggle__button{
+        border: rem(2) solid white;
+      }
+    }
+    
+    #dark {
+      left: 0;
+    }
+    #system {
+      left: 33.333%;
+    }
+    #light{
+      left:66.666%;
+    }
+
+    &__background{
+      display: block;
+      position: absolute;
+      height: rem(24); 
+      width: 100%;
+      border-radius: rem(12);
+      background: var(--toggle-bg);
+    }
+    
+    &__button{
+      position: absolute;
+      left: rem(2);
+      top: 50%;
+      transform: translateY(-50%);
+      width: rem(18);
+      height: rem(18);
+      border-radius: 50%;
+      background-color: var(--toggle-button);
+      transition: all 150ms ease-in-out;
+      pointer-events: none;
+    }
+
+    // Dark mode: left
+    &__wrapper #dark:checked ~ .toggle__button {
+    left: rem(2);
+    }
+
+    // System mode: middle
+    &__wrapper #system:checked ~ .toggle__button {
+    left: rem(15);
+    }
+
+    // Light mode: right
+    &__wrapper #light:checked ~ .toggle__button {
+    left: rem(27);
+    }
+
+
+    label{
+      font-size: rem(14);
+      cursor: pointer; 
+      
+      &[for="dark"]{
+        line-height: rem(24);
+        margin-right: rem(10);
+      }
+    }
+} 
